@@ -28,5 +28,6 @@ python3 check-firefox-bookmarks.py
 ** TODO Command line interface
 - [ ] Verbosity
 - [ ] Timeout
+- [ ] Different user agents
 
 ** TODO Check FTP links too
