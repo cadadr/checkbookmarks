@@ -1,0 +1,4 @@
+^urls$
+\.o$
+~$
+^places\.sqlite

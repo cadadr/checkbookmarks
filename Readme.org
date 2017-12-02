@@ -1,0 +1,32 @@
+#+title: Firefox Bookmarks Health Checker
+#+options: toc:nil
+
+* Description
+Tool for checking the health of Firefox bookmarks.  Reports rotten
+links, and brief statistics.
+
+* Usage
+** Requirements
+A standard Python 3 environment should suffice.
+
+** Running
+Make a copy of the Firefox places database in the repo root:
+
+#+BEGIN_SRC sh
+cp $HOME/.mozilla/firefox/<your-profile>/places.sqlite .
+#+END_SRC
+
+Run the following command line.
+
+#+BEGIN_SRC sh
+python3 check-firefox-bookmarks.py
+#+END_SRC
+
+* Wishlist
+** TODO Try to automatically replace rotten links with Wayback Machine links
+
+** TODO Command line interface
+- [ ] Verbosity
+- [ ] Timeout
+
+** TODO Check FTP links too
