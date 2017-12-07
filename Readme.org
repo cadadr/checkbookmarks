@@ -31,3 +31,4 @@ python3 check-firefox-bookmarks.py
 - [ ] Different user agents
 
 ** TODO Check FTP links too
+** TODO Exclude search bookmarks (stuff with %s in it).
