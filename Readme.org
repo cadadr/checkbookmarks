@@ -19,16 +19,18 @@ cp $HOME/.mozilla/firefox/<your-profile>/places.sqlite .
 Run the following command line.
 
 #+BEGIN_SRC sh
-python3 check-firefox-bookmarks.py
+python3 checkbookmarks.py places.sqlite
+#+END_SRC
+
+For further instructions on how to use the script, consult its command
+line help as such:
+
+#+BEGIN_SRC sh
+python3 checkbookmarks.py -h
 #+END_SRC
 
 * Wishlist
 ** TODO Try to automatically replace rotten links with Wayback Machine links
-
-** TODO Command line interface
-- [ ] Verbosity
-- [ ] Timeout
-- [ ] Different user agents
-
 ** TODO Check FTP links too
 ** TODO Exclude search bookmarks (stuff with %s in it).
+Or allow for exclusion patterns from command line / module api.

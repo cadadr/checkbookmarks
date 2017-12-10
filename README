@@ -36,7 +36,14 @@
   Run the following command line.
 
   ┌────
-  │ python3 check-firefox-bookmarks.py
+  │ python3 checkbookmarks.py places.sqlite
+  └────
+
+  For further instructions on how to use the script, consult its command
+  line help as such:
+
+  ┌────
+  │ python3 checkbookmarks.py -h
   └────
 
 
@@ -47,17 +54,11 @@
 ─────────────────────────────────────────────────────────────────────────────
 
 
-3.2 TODO Command line interface
-───────────────────────────────
-
-  • ☐ Verbosity
-  • ☐ Timeout
-  • ☐ Different user agents
-
-
-3.3 TODO Check FTP links too
+3.2 TODO Check FTP links too
 ────────────────────────────
 
 
-3.4 TODO Exclude search bookmarks (stuff with %s in it).
+3.3 TODO Exclude search bookmarks (stuff with %s in it).
 ────────────────────────────────────────────────────────
+
+  Or allow for exclusion patterns from command line / module api.
