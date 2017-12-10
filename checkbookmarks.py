@@ -86,16 +86,16 @@ def cli(args):
 
     p = argparse.ArgumentParser(
         description="Check the health of Firefox bookmarks.")
-    p.add_argument("db", metavar="DB", type=str,
+    p.add_argument("db", metavar="DATABASE", type=str,
         help="the path to places.sqlite file (preferably a copy,"
              " not the actual one Firefox uses)")
     p.add_argument("-a", type=str, metavar="USER-AGENT",
         help="the user agent string to usewhen making requests,"
              " by default set to resemble a web browser")
     p.add_argument("-t", metavar="SECONDS", type=int,
-        help="connection timeout")
+        help="connection timeout, default: %d seconds" % timeout)
     p.add_argument("-j", metavar="JOBS", type=int,
-        help="how many concurrent jobs to run, default %d" % njobs)
+        help="how many concurrent jobs to run, default: %d jobs" % njobs)
     p.add_argument("-r", metavar="RESULTS", type=int,
         help="check at most this much urls, by default all of them are"
              " processed")
