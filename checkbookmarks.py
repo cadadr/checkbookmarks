@@ -31,6 +31,8 @@ report_success = False
 report_redirects = False
 timeout = 10
 database = "places.sqlite"
+njobs = 10
+nresults = None
 
 connection = sqlite3.connect(database)
 cursor = connection.cursor()
@@ -65,7 +67,7 @@ def check(url):
         print("Error '{}': {}".format(url, errstr))
         failure.put((url, errstr))
 
-def run(nprocs=10, nresults=None):
+def run(nprocs, nresults):
     with mp.Pool(processes=nprocs) as pool:
         act = pool.map
         if nresults: act(check, itert.islice(results, nresults))
@@ -79,6 +81,9 @@ def run(nprocs=10, nresults=None):
         total, nsuccess, nfailure, nfailure / total * 100))
 
 def cli(args):
+    global report_success, report_redirects, timeout, database
+    global njobs, nresults
+
     p = argparse.ArgumentParser(
         description="Check the health of Firefox bookmarks.")
     p.add_argument("db", metavar="DB", type=str,
@@ -87,19 +92,25 @@ def cli(args):
     p.add_argument("-a", type=str, metavar="USER-AGENT",
         help="the user agent string to usewhen making requests,"
              " by default set to resemble a web browser")
-    p.add_argument("-v", action="count", help="be verbose")
     p.add_argument("-t", metavar="SECONDS", type=int,
         help="connection timeout")
+    p.add_argument("-j", metavar="JOBS", type=int,
+        help="how many concurrent jobs to run, default %d" % njobs)
+    p.add_argument("-r", metavar="RESULTS", type=int,
+        help="check at most this much urls, by default all of them are"
+             " processed")
+    p.add_argument("-v", action="count", help="be verbose")
 
     args = p.parse_args(args)
 
-    global report_success, report_redirects, timeout, database
     if args.v:
         if args.v >= 1: report_success = True
         if args.v >= 2: report_redirects = True
     if args.t: timeout = args.t
+    if args.j: njobs = args.j
+    if args.r: nresults = args.r
     database = args.db
 
 if __name__ == "__main__":
     cli(sys.argv[1:])
-    run()
+    run(njobs, nresults)
