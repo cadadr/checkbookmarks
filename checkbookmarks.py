@@ -37,7 +37,8 @@ nresults = None
 connection = sqlite3.connect(database)
 cursor = connection.cursor()
 results = map(lambda x: x[0],
-              filter(lambda x: x[0].startswith("http"), cursor.execute(query)))
+              filter(lambda x: x[0].startswith("http"),
+                     cursor.execute(query)))
 
 success = mp.Queue()
 failure = mp.Queue()
