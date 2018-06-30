@@ -1,5 +1,5 @@
 ^urls$
 \.o$
 ~$
-^places\.sqlite
+\.sqlite(-(shm|wal))?$
 __pycache__
