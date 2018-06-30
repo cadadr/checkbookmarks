@@ -1,6 +1,7 @@
 #+title: Firefox Bookmarks Health Checker
 #+options: toc:nil
 #+EXPORT_FILE_NAME: README
+#+category: checkbookmarks
 
 * Description
 Tool for checking the health of Firefox bookmarks.  Reports rotten
