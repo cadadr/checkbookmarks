@@ -1,5 +1,0 @@
-^urls$
-\.o$
-~$
-\.sqlite(-(shm|wal))?$
-__pycache__
