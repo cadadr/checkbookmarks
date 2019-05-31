@@ -31,8 +31,3 @@ line help as such:
 python3 checkbookmarks.py -h
 #+END_SRC
 
-* Wishlist
-** TODO Try to automatically replace rotten links with Wayback Machine links
-** TODO Check FTP links too
-** TODO Exclude search bookmarks (stuff with %s in it).
-Or allow for exclusion patterns from command line / module api.
